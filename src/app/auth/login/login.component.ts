@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required)
     })
   }
+  /*lets learn github*/
   submitLoginForm(loginForm){
     this.authService.handelLoginForm(loginForm).subscribe((res)=>{
       if(res.data == "login"){
