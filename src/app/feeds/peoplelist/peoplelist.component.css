@@ -1,0 +1,24 @@
+.grid-margin {
+    margin-bottom: 1rem; 
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #0e0e0edb;
+    border-radius: 0.25rem;
+}
+.rounded {
+    border-radius: 0.25rem !important;
+}
+.img-xs {
+    width: 37px;
+    height: 37px;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
