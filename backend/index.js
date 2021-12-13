@@ -4,7 +4,7 @@ const router=require('./routes/routes');
 const app = express();
 const bodyParser = require("body-parser");
 const cokkieParser=require("cookie-parser");
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const path=require("path");
 
 
