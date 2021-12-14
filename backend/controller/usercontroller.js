@@ -8,24 +8,8 @@ const Posts = require("../model/Posts");
 const findIdFromToken = (token) => {   //get user db id from token
     return jwt.verify(token, secret_key).id;
 }
-const userPostFileLocation="http://localhost:5000/"+process.env.USERPOST_FILE_LOCATION+"/";
-const userDpLocation="http://localhost:5000/"+process.env.USERPOST_PROFILE_PIC_LOCATION+"/";
-/*
-const multer = require("multer");
-//set storage engine
-const storage = multer.diskStorage({
-    destination: '../upload-file',
-    filename:function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
-        // console.log(path.extname(file.originalname))
-    }
-});
-//init upload
-const upload = multer({
-    storage: storage
-}).single('file')*/
-
-
+const userPostFileLocation=process.env.BASE_FILE_URL+process.env.USERPOST_FILE_LOCATION+"/";
+const userDpLocation=process.env.BASE_FILE_UR+process.env.USERPOST_PROFILE_PIC_LOCATION+"/";
 module.exports.userprofile = async (req, res) => {
     const user_token = req.query.token;
     if (!user_token) {
@@ -64,7 +48,6 @@ module.exports.user_post = async (req, res) => {
             data: "posted"
         });
     } catch (error) {
-        console.log("3");
         console.log(error);
         res.status(500).json({
             error: "interna server error"
@@ -137,8 +120,7 @@ module.exports.update_profile_pic=async(req,res)=>{
 module.exports.user_name_list=async (req,res)=>{
     try {
         const user_id = findIdFromToken(req.query.token);
-        const allusers = await User.find({ _id: { $ne: user_id } }).select({name:1,profile_pic:1}).sort({date: -1})
-        console.log(allusers);
+        const allusers = await User.find({ _id: { $ne: user_id } }).select({name:1,profile_pic:1}).sort({date: -1});
         res.status(200).json({
             status:true,
             data:allusers

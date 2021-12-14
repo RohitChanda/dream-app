@@ -1,12 +1,15 @@
 const express=require("express");
 const router=new express.Router();
-
+const path=require("path");
 const authcontroller=require('../controller/authcontroller')
 const usercontroller=require('../controller/usercontroller'); 
 // const {fetchuser}=require("../middleware/fetchuser");   //middleware
 const upload=require("../middleware/uploadfile");  //middleware for file upload
 const updatePic=require("../middleware/updateprofilepic");  //middleware for dp update
 
+router.get('/',(req,res)=>{
+    res.sendFile(path.join(__dirname,'/../../dist/dream-app/index.html'));
+})
 //auth routes---------------------
 router.post('/api/signup',authcontroller.signup);
 router.post('/api/signin',authcontroller.signin);
