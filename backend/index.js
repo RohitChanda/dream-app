@@ -22,10 +22,10 @@ app.use(cokkieParser()); // to get the value from cookies in your browser
 // app.use(express.static(path.join(__dirname, '../public')));
 app.use('/public/uploadfile/userspost',express.static(path.join('public/uploadfile/userspost')));
 app.use('/public/uploadfile/userpic',express.static(path.join('public/uploadfile/userpic')));
-// app.use('../dist',express.static(path.join('../dist')));
-// app.get('/',function(req,res){
-//   res.sendFile(path.join(__dirname,'/../dist/dream-app/index.html'));
-// });
+
+app.get('/',function(req,res){
+  res.sendFile(path.join(__dirname,'/../dist/dream-app/index.html'));
+});
 /*
 app.use(function (req, res, next) {
 
