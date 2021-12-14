@@ -2,7 +2,7 @@
   "name": "dream-app",
   "version": "0.0.0",
   "scripts": {
-    "heroku-postbuild": "ng build --prod --output-hashing=none --prefix dream-app && npm run start --prefix backend ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false ng build --prod --output-hashing=none --prefix dream-app && npm run start --prefix backend ",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
