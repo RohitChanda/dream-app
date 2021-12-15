@@ -10,13 +10,17 @@ export class AuthguardGuard implements CanActivate {
   constructor(private checkUser:CheckuserService,private route:Router){}
   canActivate() {
     if(this.checkUser.isLoggin()){
+      console.log("here1");
       return true;
     }
     else{
+      console.log("here2");
       alert("You are not logged in");
       this.route.navigate(['/signin']);
       return false;
     }
+    
+   
   }
   
 }
